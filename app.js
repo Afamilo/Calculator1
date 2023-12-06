@@ -14,10 +14,6 @@ function divide(a,b){
     return b === 0 ? 'indivisible' : a / b;
 };
 
-function operate(operator, number1, number2){
-         
-}
-
 const clearBtn = document.querySelector(".clear-btn");
 const egual = document.querySelector(".egualBtn");
 let display = document.querySelector(".display");
@@ -33,7 +29,6 @@ let operation;
 let result = 0;
 let isOperatorPressed = false;
 
-//Events;
 numberkeys.forEach(function(numberkey){
     numberkey.addEventListener('click', function(e){
         displayValue += e.target.textContent
@@ -65,6 +60,7 @@ operatorKeys.forEach(function(operatorKey){
       }          
   })
 })
+
 egual.addEventListener('click', function(e){
   number1 = Number(number1)
   number2 = Number(number2)
@@ -86,3 +82,18 @@ egual.addEventListener('click', function(e){
   }
 })
 
+clearBtn.addEventListener('click', function(e){
+    displayValue = '';
+    number1 = 0;
+    number2 = 0;
+    result = '';
+    display.innerHTML = result;
+   })
+   
+   deleteBtn.addEventListener('click', function(e){
+     displayValue = displayValue.slice(0, -1)
+     if(displayValue === '') {
+       displayValue = ''
+     }
+    display.innerHTML = displayValue;
+   })
